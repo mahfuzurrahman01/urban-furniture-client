@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
 import { Link, useNavigate } from 'react-router-dom';
@@ -10,6 +10,7 @@ const Register = () => {
 
     const { register, handleSubmit } = useForm()
     const onSubmit = (data, event) => {
+
         event.preventDefault()
         const form = event.target;
         console.log(data)
@@ -21,14 +22,14 @@ const Register = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user)
-                
+
                 updateUserName(name)
                     .then(() => { toast.success('User updated') })
                     .catch((err) => console.log(err))
-
                 form.reset()
-                navigate('/')
+                
                 toast.success('User Created Successfully!')
+                navigate('/')
             })
             .catch((err) => console.log(err.message))
     }

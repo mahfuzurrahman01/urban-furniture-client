@@ -2,7 +2,6 @@ import logo from '../assets/logo/V-Furniture.png'
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../AuthProvider/AuthProvider';
-import Button from '../Button/Button';
 import toast from 'react-hot-toast';
 
 const Navbar = () => {

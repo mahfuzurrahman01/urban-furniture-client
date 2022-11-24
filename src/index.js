@@ -5,7 +5,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import AOS from 'aos';
 import 'aos/dist/aos.css'; // You can also use <link> for styles
-import toast, { Toaster } from 'react-hot-toast';
+import { Toaster } from 'react-hot-toast';
 
 import AuthProvider from './AuthProvider/AuthProvider';
 AOS.init();
