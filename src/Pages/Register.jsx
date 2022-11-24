@@ -1,21 +1,37 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom';
+import toast from 'react-hot-toast';
+import { Link, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../AuthProvider/AuthProvider';
 
 const Register = () => {
+    const navigate = useNavigate()
+    const { createUser, updateUserName } = useContext(AuthContext)
 
-    const [currentUser, setCurrentUser] = useState('')
     const { register, handleSubmit } = useForm()
-    const onSubmit = data => {
+    const onSubmit = (data, event) => {
+        event.preventDefault()
+        const form = event.target;
         console.log(data)
-        setCurrentUser(data)
-    }
-    const name = currentUser.name;
-    const email = currentUser.email;
-    const password = currentUser.password;
-    const role = currentUser.role;
-    console.log(name, email, password)
+        const name = data.name;
+        const email = data.email;
+        const password = data.password;
+        const role = data.role;
+        createUser(email, password)
+            .then(result => {
+                const user = result.user;
+                console.log(user)
+                
+                updateUserName(name)
+                    .then(() => { toast.success('User updated') })
+                    .catch((err) => console.log(err))
 
+                form.reset()
+                navigate('/')
+                toast.success('User Created Successfully!')
+            })
+            .catch((err) => console.log(err.message))
+    }
 
     return (
         <div className='my-10 w-full' data-aos="fade-up">
