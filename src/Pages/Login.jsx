@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 
 
 const Login = () => {
+    document.title = "Login";
 
     const handleLogin = (event) => {
         event.preventDefault()

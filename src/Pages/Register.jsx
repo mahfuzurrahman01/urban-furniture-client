@@ -5,6 +5,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../AuthProvider/AuthProvider';
 
 const Register = () => {
+    document.title = "Registration";
     const navigate = useNavigate()
     const { createUser, updateUserName } = useContext(AuthContext)
 
