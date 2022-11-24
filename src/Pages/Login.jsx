@@ -39,15 +39,7 @@ const Login = () => {
     }
     return (
         <div className='my-20 w-full' data-aos="fade-up">
-            {/* <form onSubmit={handleSubmit(onSubmit)}>
-                <input {...register("firstName")} />
-                <select {...register("gender")}>
-                    <option value="female">female</option>
-                    <option value="male">male</option>
-                    <option value="other">other</option>
-                </select>
-                <input type="submit" />
-            </form> */}
+            
             <div className="md:w-full w-11/12 max-w-md mx-auto p-8 space-y-3 rounded-xl bg-transparent shadow-2xl shadow-accent   text-gray-100">
                 <h1 className="text-3xl font-bold text-center text-gray-500">Sign In</h1>
                 <form onSubmit={handleLogin} noValidate="" action="" className="space-y-6 ng-untouched ng-pristine ng-valid">
