@@ -22,6 +22,8 @@ const Dashboard = () => {
                         <li><Link to='/dashboard/allBuyers' className='shadow shadow-primary rounded'>All Buyers</Link></li>
                         <li><Link to='/dashboard/myProducts' className='shadow shadow-primary rounded'>My Products</Link></li>
                         <li><Link to='/dashboard/addProducts' className='shadow shadow-primary rounded'>Add Products</Link></li>
+                        <li><Link to='/dashboard/myOrders' className='shadow shadow-primary rounded'>My Orders</Link></li>
+                        <li><Link to='/dashboard/myWishlist' className='shadow shadow-primary rounded'>My Wishlist</Link></li>
                     </ul>
 
                 </div>
