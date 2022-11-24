@@ -1,13 +1,16 @@
 import React, { useContext } from 'react';
 import toast from 'react-hot-toast';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../AuthProvider/AuthProvider';
+import Spinner from '../Shared/Spinner';
 
 
 const Login = () => {
+    const location = useLocation()
+    let from = location.state?.from?.pathname || "/";
     document.title = "Login";
     const navigate = useNavigate()
-    const { signIn } = useContext(AuthContext)
+    const { signIn, loading } = useContext(AuthContext)
     const handleLogin = (event) => {
         event.preventDefault()
         const form = event.target;
@@ -18,12 +21,16 @@ const Login = () => {
                 const user = result.user;
                 console.log(user)
                 form.reset()
-                navigate('/')
+                navigate(from, { replace: true });
+
                 toast.success('Successfully Logged In')
             })
             .catch(err => console.log(err))
 
 
+    }
+    if (loading) {
+        return <Spinner></Spinner>
     }
     return (
         <div className='my-20 w-full' data-aos="fade-up">

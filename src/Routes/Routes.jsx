@@ -12,6 +12,7 @@ import MyProducts from "../Pages/MyProducts";
 import MyWishlist from "../Pages/MyWishlist";
 import Products from "../Pages/Products";
 import Register from "../Pages/Register";
+import PrivateRoute from "../Private/PrivateRoute";
 import Error from "../Shared/Error";
 
 const { createBrowserRouter } = require("react-router-dom");
@@ -56,7 +57,7 @@ export const router = createBrowserRouter([
     },
     {
         path: '/dashboard',
-        element: <Dashboard></Dashboard>,
+        element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
         children: [
             {
                 path: '/dashboard/allSellers',
