@@ -16,8 +16,9 @@ const Navbar = () => {
     const navbar =
         <>
             <li><Link to='/'>Home</Link></li>
-            <li><Link to='/products'>Products</Link></li>
-            <li><Link to='/about'>About</Link></li>
+            <li><Link to='/dashboard'>Dashboard</Link></li>
+            <li><Link to='/blogs'>Blogs</Link></li>
+            <li><Link to='/about'>About Us</Link></li>
         </>
     return (
         <div className="navbar w-11/12 mx-auto py-5">

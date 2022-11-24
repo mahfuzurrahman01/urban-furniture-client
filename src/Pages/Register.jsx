@@ -13,23 +13,40 @@ const Register = () => {
 
         event.preventDefault()
         const form = event.target;
-        console.log(data)
+
         const name = data.name;
         const email = data.email;
         const password = data.password;
         const role = data.role;
+        const userData = {
+            name,
+            email,
+            role
+        }
         createUser(email, password)
             .then(result => {
                 const user = result.user;
                 console.log(user)
 
                 updateUserName(name)
-                    .then(() => { toast.success('User updated') })
+                    .then(() => { })
                     .catch((err) => console.log(err))
                 form.reset()
-                
-                toast.success('User Created Successfully!')
-                navigate('/')
+                fetch('http://localhost:5000/adduser', {
+                    method: 'POST',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(userData)
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data.acknowledged) {
+                            toast.success('User Created Successfully!')
+                            navigate('/')
+                        }
+                    })
+
             })
             .catch((err) => console.log(err.message))
     }

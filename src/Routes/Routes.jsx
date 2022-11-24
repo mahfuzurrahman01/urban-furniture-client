@@ -1,5 +1,7 @@
+import Dashboard from "../Dashboard/Dashboard";
 import Main from "../Layouts/Main";
 import About from "../Pages/About";
+import Blogs from "../Pages/Blogs";
 import Home from "../Pages/Home";
 import Login from "../Pages/Login";
 import Products from "../Pages/Products";
@@ -38,6 +40,14 @@ export const router = createBrowserRouter([
             {
                 path: '/registration',
                 element: <Register></Register>
+            },
+            {
+                path: '/dashboard',
+                element: <Dashboard></Dashboard>
+            },
+            {
+                path: '/blogs',
+                element: <Blogs></Blogs>
             }
 
         ]
