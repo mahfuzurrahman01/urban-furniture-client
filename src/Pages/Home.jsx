@@ -19,7 +19,7 @@ const Home = () => {
         slidesToScroll: 1
     };
     return (
-        <div className='lg:w-11/12 md:w-11/12 w-full mx-auto'>
+        <div className='lg:w-11/12 md:w-11/12 w-full mx-auto relative'>
             <div>
                 <Slider {...settings}>
                     <div>
@@ -35,6 +35,11 @@ const Home = () => {
                         <img src={slider4} alt="" />
                     </div>
                 </Slider>
+            </div>
+            <div className='absolute top-1/4 left-52 flex flex-col items-center justify-center space-y-2 bg-gray-300 bg-opacity-50 p-10 rounded-lg'>
+                <h1 className='text-6xl font-semibold text-slate-100 text-center'>Decor the dreams with wood beauty</h1>
+                <p className='text-3xl font-normal text-slate-600 text-center'>Don't go for new one, Just exchange your old one! <br /> One site where you can exchange,buy,resale</p>
+                <button className='bg-primary bg-gradient-to-r from-secondary py-2 px-4 rounded text-white'>Get Started</button>
             </div>
         </div>
     );
