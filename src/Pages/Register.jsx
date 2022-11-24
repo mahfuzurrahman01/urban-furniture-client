@@ -13,20 +13,13 @@ const Register = () => {
     const name = currentUser.name;
     const email = currentUser.email;
     const password = currentUser.password;
+    const role = currentUser.role;
     console.log(name, email, password)
 
 
     return (
         <div className='my-10 w-full' data-aos="fade-up">
-            {/* <form onSubmit={handleSubmit(onSubmit)}>
-            <input {...register("firstName")} />
-            <select {...register("gender")}>
-                <option value="female">female</option>
-                <option value="male">male</option>
-                <option value="other">other</option>
-            </select>
-            <input type="submit" />
-        </form> */}
+
             <div className="md:w-full w-11/12 max-w-md mx-auto p-8 space-y-3 rounded-xl bg-transparent shadow-2xl shadow-accent   text-gray-100">
                 <h1 className="text-3xl font-bold text-center text-gray-500">Sign Up</h1>
                 <form onSubmit={handleSubmit(onSubmit)} noValidate="" action="" className="space-y-6 ng-untouched ng-pristine ng-valid">
