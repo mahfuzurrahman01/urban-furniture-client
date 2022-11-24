@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Button from '../Button/Button';
 
 const Navbar = () => {
     const navbar =
@@ -7,10 +8,9 @@ const Navbar = () => {
             <li><Link to='/'>Home</Link></li>
             <li><Link to='/products'>Products</Link></li>
             <li><Link to='/about'>About</Link></li>
-
         </>
     return (
-        <div className="navbar bg-base-100">
+        <div className="navbar bg-base-100 w-11/12 mx-auto">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -20,7 +20,7 @@ const Navbar = () => {
                         {navbar}
                     </ul>
                 </div>
-                <a className="btn btn-ghost normal-case text-xl">daisyUI</a>
+                <a className="btn btn-ghost normal-case text-xl" href='# '>daisyUI</a>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal p-0">
@@ -28,7 +28,7 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <a className="btn" href='# '>Get started</a>
+                <Link to='/login'><Button>Sign In</Button></Link>
             </div>
         </div>
     );
