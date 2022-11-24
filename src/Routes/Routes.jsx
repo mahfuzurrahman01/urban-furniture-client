@@ -12,6 +12,7 @@ import MyProducts from "../Pages/MyProducts";
 import MyWishlist from "../Pages/MyWishlist";
 import Products from "../Pages/Products";
 import Register from "../Pages/Register";
+import AdminPrivate from "../Private/AdminPrivate";
 import PrivateRoute from "../Private/PrivateRoute";
 import Error from "../Shared/Error";
 
@@ -61,11 +62,11 @@ export const router = createBrowserRouter([
         children: [
             {
                 path: '/dashboard/allSellers',
-                element: <AllSellers></AllSellers>
+                element: <AdminPrivate><AllSellers></AllSellers></AdminPrivate>
             },
             {
                 path: '/dashboard/allBuyers',
-                element: <Allbuyers></Allbuyers>
+                element: <AdminPrivate><Allbuyers></Allbuyers></AdminPrivate>
             },
             {
                 path: '/dashboard/myProducts',
