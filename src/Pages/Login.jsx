@@ -8,9 +8,10 @@ import Spinner from '../Shared/Spinner';
 const Login = () => {
     const location = useLocation()
     let from = location.state?.from?.pathname || "/";
+    console.log(from)
     document.title = "Login";
     const navigate = useNavigate()
-    const { signIn, loading } = useContext(AuthContext)
+    const { signIn, loading, setLoading } = useContext(AuthContext)
     const handleLogin = (event) => {
         event.preventDefault()
         const form = event.target;
@@ -25,7 +26,11 @@ const Login = () => {
 
                 toast.success('Successfully Logged In')
             })
-            .catch(err => console.log(err))
+            .catch((error) => {
+                const errorMessage = error.message;
+                toast.error(errorMessage)
+                setLoading(false)
+            })
 
 
     }

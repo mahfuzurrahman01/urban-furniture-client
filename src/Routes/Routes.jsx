@@ -13,7 +13,9 @@ import MyWishlist from "../Pages/MyWishlist";
 import Products from "../Pages/Products";
 import Register from "../Pages/Register";
 import AdminPrivate from "../Private/AdminPrivate";
+import BuyerPrivate from "../Private/BuyerPrivate";
 import PrivateRoute from "../Private/PrivateRoute";
+import SellerPrivate from "../Private/SellerPrivate";
 import Error from "../Shared/Error";
 
 const { createBrowserRouter } = require("react-router-dom");
@@ -70,19 +72,19 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/dashboard/myProducts',
-                element: <MyProducts></MyProducts>
+                element: <SellerPrivate><MyProducts></MyProducts></SellerPrivate>
             },
             {
                 path: '/dashboard/addProducts',
-                element: <AddProducts></AddProducts>
+                element: <SellerPrivate><AddProducts></AddProducts></SellerPrivate>
             },
             {
                 path: '/dashboard/myOrders',
-                element: <MyOrders></MyOrders>
+                element: <BuyerPrivate><MyOrders></MyOrders></BuyerPrivate>
             },
             {
                 path: '/dashboard/myWishlist',
-                element: <MyWishlist></MyWishlist>
+                element: <BuyerPrivate><MyWishlist></MyWishlist></BuyerPrivate>
             }
         ]
     },
