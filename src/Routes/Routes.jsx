@@ -1,6 +1,8 @@
 import Dashboard from "../Dashboard/Dashboard";
 import Main from "../Layouts/Main";
 import About from "../Pages/About";
+import Allbuyers from "../Pages/Allbuyers";
+import AllSellers from "../Pages/AllSellers";
 import Blogs from "../Pages/Blogs";
 import Home from "../Pages/Home";
 import Login from "../Pages/Login";
@@ -42,14 +44,24 @@ export const router = createBrowserRouter([
                 element: <Register></Register>
             },
             {
-                path: '/dashboard',
-                element: <Dashboard></Dashboard>
-            },
-            {
                 path: '/blogs',
                 element: <Blogs></Blogs>
             }
 
         ]
-    }
+    },
+    {
+        path: '/dashboard',
+        element: <Dashboard></Dashboard>,
+        children: [
+            {
+                path: '/dashboard/allSellers',
+                element: <AllSellers></AllSellers>
+            },
+            {
+                path: '/dashboard/allBuyers',
+                element: <Allbuyers></Allbuyers>
+            }
+        ]
+    },
 ])
