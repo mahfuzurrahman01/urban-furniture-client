@@ -20,6 +20,8 @@ const Dashboard = () => {
                     <ul className="menu p-4 w-64 border-r-2 border-t-2 border-amber-100 text-base-content flex flex-col space-y-2 ">
                         <li><Link to='/dashboard/allSellers' className='shadow shadow-primary rounded'>All Sellers</Link></li>
                         <li><Link to='/dashboard/allBuyers' className='shadow shadow-primary rounded'>All Buyers</Link></li>
+                        <li><Link to='/dashboard/myProducts' className='shadow shadow-primary rounded'>My Products</Link></li>
+                        <li><Link to='/dashboard/addProducts' className='shadow shadow-primary rounded'>Add Products</Link></li>
                     </ul>
 
                 </div>
