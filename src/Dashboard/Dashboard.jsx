@@ -20,7 +20,8 @@ const Dashboard = () => {
             <div className="drawer drawer-mobile relative">
                 <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
                 <div className="drawer-content">
-                    <div className='w-full flex justify-end'>
+                    <div className='w-full flex justify-between items-center'>
+                        <p className='border text-sm font-semibold p-1 ml-2 border-amber-200'>Hey {user?.displayName}, This is your dashboard</p>
                         <button className='text-white my-2 bg-primary bg-gradient-to-r from-secondary rounded py-1 px-3'>{role.role} dashboard</button>
                     </div>
                     <label htmlFor="my-drawer-2" className="btn btn-primary btn-xs w-[10%] absolute top-0 right-0 text-white drawer-button lg:hidden">Menu</label>
