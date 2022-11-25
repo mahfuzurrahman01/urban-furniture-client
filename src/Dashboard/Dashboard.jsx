@@ -28,6 +28,7 @@ const Dashboard = () => {
                 </div>
                 <div className="drawer-side">
                     <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
+                 
                     <ul className="menu p-4 lg:w-64 w-1/2 lg:bg-transparent bg-white border-r-2 border-t-2 border-amber-100 text-base-content flex flex-col space-y-2 ">
 
                         {

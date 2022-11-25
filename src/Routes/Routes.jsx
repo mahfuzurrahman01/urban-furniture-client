@@ -1,3 +1,4 @@
+import ProductDetails from "../Category/ProductDetails";
 import Dashboard from "../Dashboard/Dashboard";
 import Main from "../Layouts/Main";
 import About from "../Pages/About";
@@ -54,6 +55,10 @@ export const router = createBrowserRouter([
             {
                 path: '/blogs',
                 element: <Blogs></Blogs>
+            },
+            {
+                path: '/category/:id',
+                element: <PrivateRoute><ProductDetails></ProductDetails></PrivateRoute>
             }
 
         ]
