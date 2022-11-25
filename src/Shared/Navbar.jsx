@@ -32,7 +32,7 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className='flex space-x-2 items-center'>
-                    <img src={logo} className='w-12 h-12 rounded-full' alt="" />
+                    <img src={logo} className='w-14 h-14 rounded-full' alt="" />
                     <p className='text-4xl font-light text-accent'>Urban</p>
                 </div>
             </div>

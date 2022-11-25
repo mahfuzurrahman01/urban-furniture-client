@@ -4,7 +4,7 @@ import logo from '../assets/logo/V-Furniture.png'
 const CategoryCard = ({ category }) => {
     const { categoryName, categoryId, categoryImage } = category
     return (
-        <div className="flex flex-col max-w-lg p-6 space-y-6 overflow-hidden rounded-lg shadow-md bg-primary bg-opacity-95 text-gray-100">
+        <div className="flex flex-col max-w-lg p-6 space-y-6 overflow-hidden rounded-lg shadow-md bg-secondary bg-gradient-to-r from-primary bg-opacity-95 text-gray-100">
             <div className="flex space-x-4">
                 <Link to='/home'><img alt="" src={logo} className="object-cover w-12 h-12 rounded-full shadow hover:brightness-75 duration-300" /></Link>
                 <div className="flex flex-col space-y-1">
