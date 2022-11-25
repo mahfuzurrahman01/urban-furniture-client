@@ -1,0 +1,131 @@
+[
+    {
+        "categoryImage": "https://i.ibb.co/QPNJC23/livingroom.jpg",
+        "categoryName": "living Room",
+        "categoryId": 1,
+        "products": [
+            {
+                "productImage": "https://i.ibb.co/QPz3fcK/kam-idris-nylc-MEg-K8-EQ-unsplash.jpg",
+                "productName": "Sofa set",
+                "sellerName": "Gracie Bowers",
+                "sellerEmail": "hello@gmail.com",
+                "sellerLocation": "Chittagong,Bangladesh",
+                "resalePrice": "319",
+                "originalPrice": "499",
+                "yearsOfUse": "less then 1 year",
+                "postedTime": "25.11.22 15:30",
+                "position": "verified"
+            },
+            {
+                "productImage": "https://images.unsplash.com/photo-1592247350271-c5efb34dd967?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
+                "productName": "Single Dyn",
+                "sellerName": "John Miller",
+                "sellerEmail": "hello@gmail1.com",
+                "sellerLocation": "Dhaka,Bangladesh",
+                "resalePrice": "299",
+                "originalPrice": "399",
+                "yearsOfUse": "1 year used",
+                "postedTime": "24.11.22 11:30",
+                "position": "non verified"
+            },
+            {
+                "productImage": "https://images.unsplash.com/photo-1513694203232-719a280e022f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2069&q=80",
+                "productName": "Living Room set",
+                "sellerName": "Devid Frank",
+                "sellerEmail": "hello@gmail.com",
+                "sellerLocation": "Cumilla,Bangladesh",
+                "resalePrice": "599",
+                "originalPrice": "999",
+                "yearsOfUse": "2 years used",
+                "postedTime": "19.11.22 13:30",
+                "position": "verified"
+            }
+        ]
+    },
+    {
+        "categoryImage": "https://images.unsplash.com/photo-1615803796379-b4cda8e9c09c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
+        "categoryName": "Dinning Room",
+        "categoryId": 2,
+        "products": [
+            {
+                "productImage": "https://images.unsplash.com/photo-1505409628601-edc9af17fda6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
+                "productName": "Dinning Table set",
+                "sellerName": "Rossa lyn",
+                "sellerEmail": "hello@gmail.com",
+                "sellerLocation": "Kurigram,Bangladesh",
+                "resalePrice": "399",
+                "originalPrice": "599",
+                "yearsOfUse": "1 years used",
+                "postedTime": "24.11.22 23:30",
+                "position": "verified"
+            },
+            {
+                "productImage": "https://images.unsplash.com/photo-1516455590571-18256e5bb9ff?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
+                "productName": "4 seating table",
+                "sellerName": "Risson Myler",
+                "sellerEmail": "hello@gmail.com",
+                "sellerLocation": "Sylhet,Bangladesh",
+                "resalePrice": "499",
+                "originalPrice": "799",
+                "yearsOfUse": "3 years used",
+                "postedTime": "21.11.22 13:30",
+                "position": "verified"
+            },
+            {
+                "productImage": "https://images.unsplash.com/photo-1492138645880-160f6a5136fa?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
+                "productName": "Dinning with sofa",
+                "sellerName": "Devid Frank",
+                "sellerEmail": "hello@gmail.com",
+                "sellerLocation": "Cumilla,Bangladesh",
+                "resalePrice": "699",
+                "originalPrice": "999",
+                "yearsOfUse": "2 years used",
+                "postedTime": "19.11.22 13:30",
+                "position": "non verified"
+            }
+        ]
+    },
+    {
+        "categoryImage": "https://images.pexels.com/photos/2635038/pexels-photo-2635038.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "categoryName": "Kitchen Room",
+        "categoryId": 3,
+        "products": [
+            {
+                "productImage": "https://images.unsplash.com/photo-1484154218962-a197022b5858?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=874&q=80",
+                "productName": "Kitchen High Chair",
+                "sellerName": "Abdur Rahman",
+                "sellerEmail": "hello@gmail.com",
+                "sellerLocation": "Cumilla,Bangladesh",
+                "resalePrice": "199",
+                "originalPrice": "299",
+                "yearsOfUse": "1 years used",
+                "postedTime": "20.11.22 12:30",
+                "position": "verified"
+            },
+            {
+                "productImage": "https://images.unsplash.com/photo-1556910602-38f53e68e15d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=725&q=80",
+                "productName": "Hanging Mount",
+                "sellerName": "Ameena Begum",
+                "sellerEmail": "hello@gmail.com",
+                "sellerLocation": "Chandpur,Bangladesh",
+                "resalePrice": "99",
+                "originalPrice": "299",
+                "yearsOfUse": "2 years used",
+                "postedTime": "19.11.22 11:30",
+                "position": "non verified"
+            },
+            {
+                "productImage": "https://images.pexels.com/photos/2062426/pexels-photo-2062426.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+                "productName": "Full set up",
+                "sellerName": "Devid Frank",
+                "sellerEmail": "hello@gmail.com",
+                "sellerLocation": "Cumilla,Bangladesh",
+                "resalePrice": "399",
+                "originalPrice": "699",
+                "yearsOfUse": "2 years used",
+                "postedTime": "17.11.22 13:30",
+                "position": "non verified"
+            }
+        ]
+    }
+]
