@@ -10,6 +10,8 @@ import "slick-carousel/slick/slick-theme.css";
 import { useQuery } from '@tanstack/react-query';
 import Spinner from '../Shared/Spinner';
 import CategoryCard from '../Shared/CategoryCard';
+import AdvertiseItem from '../Shared/AdvertiseItem';
+import Reviews from './Reviews';
 
 const Home = () => {
     document.title = "Home";
@@ -57,10 +59,16 @@ const Home = () => {
                     <button className='bg-primary text-md bg-gradient-to-r from-secondary py-2 px-5 rounded text-white'>Get Started</button>
                 </div>
             </div>
+            <div>
+                <AdvertiseItem></AdvertiseItem>
+            </div>
             <div className='grid grid-cols-3 w-11/12 mx-auto space-x-5 my-5'>
                 {
                     categories.map(category => <CategoryCard key={category.categoryId} category={category}></CategoryCard>)
                 }
+            </div>
+            <div>
+                <Reviews></Reviews>
             </div>
         </div>
     );
