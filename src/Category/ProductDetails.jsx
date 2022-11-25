@@ -1,15 +1,24 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import logo from '../assets/logo/V-Furniture.png'
 import { MdVerified } from 'react-icons/md'
 import { SlCalender } from 'react-icons/sl'
 import { AiFillStar } from 'react-icons/ai'
 import { useLoaderData } from 'react-router-dom';
 import ProductCard from './ProductCard';
+import { useForm } from 'react-hook-form';
+import { AuthContext } from '../AuthProvider/AuthProvider';
+import BookingModal from '../Shared/BookingModal';
 
 const ProductDetails = () => {
+    const { user } = useContext(AuthContext)
+    const [modalState, setModalState] = useState(null)
+
     const data = useLoaderData()
     const { categoryImage, categoryName, categoryId, products } = data[0]
-    console.log(products)
+
+
+
+
     return (
         <div>
             <div className='w-11/12 mx-auto relative'>
@@ -85,12 +94,17 @@ const ProductDetails = () => {
                                 </div>
                             </div>
                             <div>
-                                <button className='bg-gray-100 hover:bg-gray-300 duration-300 w-full rounded py-2 px-2 mt-4 text-secondary font-bold'>Book Now</button>
+                                <label onClick={() => setModalState(product)} htmlFor="my-modal-4" className="w-full block text-secondary text-center py-2 px-3 rounded mt-5 bg-gray-100 font-bold hover:bg-gray-300 duration-300">Book Now</label>
                             </div>
                         </div>
-
                     </div>
                     </div>)
+                }
+
+            </div>
+            <div>
+                {
+                    modalState && <BookingModal setModalState={setModalState} modalState={modalState}></BookingModal>
                 }
             </div>
         </div>

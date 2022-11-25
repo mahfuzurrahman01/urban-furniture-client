@@ -54,7 +54,6 @@ const Register = () => {
 
     return (
         <div className='my-10 w-full' data-aos="fade-up">
-
             <div className="md:w-full w-11/12 max-w-md mx-auto p-8 space-y-3 rounded-xl bg-transparent shadow-2xl shadow-accent   text-gray-100">
                 <h1 className="text-3xl font-bold text-center text-gray-500">Sign Up</h1>
                 <form onSubmit={handleSubmit(onSubmit)} noValidate="" action="" className="space-y-6 ng-untouched ng-pristine ng-valid">
