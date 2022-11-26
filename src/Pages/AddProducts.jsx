@@ -1,18 +1,15 @@
 import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
+import toast from 'react-hot-toast';
+import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../AuthProvider/AuthProvider';
 import Spinner from '../Shared/Spinner';
 
 const AddProducts = () => {
     const [isLoading, setIsLoading] = useState(false)
-
+    const navigate = useNavigate()
     const { user } = useContext(AuthContext)
     document.title = "Add Products";
-    //default object for category 
-    const categoryOne = {}
-    const categoryTwo = {}
-    const categoryThree = {}
-
 
     const imgHostingKey = process.env.REACT_APP_imgbb_key;
     console.log(imgHostingKey)
@@ -42,7 +39,13 @@ const AddProducts = () => {
                             body: JSON.stringify(newData)
                         })
                             .then(res => res.json())
-                            .then(data => console.log(data))
+                            .then(data => {
+                                if (data.acknowledged) {
+                                    setIsLoading(false)
+                                    toast.success('Product added successfully')
+                                    navigate('/dashboard/myProducts')
+                                }
+                            })
                     }
                     else if (data.categoryName === "Dinning Room") {
                         const newData = { ...data, categoryId: 2, categoryImage: "https://images.unsplash.com/photo-1615803796379-b4cda8e9c09c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" }
@@ -54,7 +57,13 @@ const AddProducts = () => {
                             body: JSON.stringify(newData)
                         })
                             .then(res => res.json())
-                            .then(data => console.log(data))
+                            .then(data => {
+                                if (data.acknowledged) {
+                                    setIsLoading(false)
+                                    toast.success('Product added successfully')
+                                    navigate('/dashboard/myProducts')
+                                }
+                            })
 
                     }
                     else if (data.categoryName === "kitchen Room") {
@@ -67,10 +76,15 @@ const AddProducts = () => {
                             body: JSON.stringify(newData)
                         })
                             .then(res => res.json())
-                            .then(data => console.log(data))
+                            .then(data => {
+                                if (data.acknowledged) {
+                                    setIsLoading(false)
+                                    toast.success('Product added successfully')
+                                    navigate('/dashboard/myProducts')
+                                }
+                            })
                     }
-                    
-                    setIsLoading(false)
+
                 }
             })
     }

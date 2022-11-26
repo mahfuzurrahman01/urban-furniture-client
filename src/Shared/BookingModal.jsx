@@ -12,7 +12,7 @@ const BookingModal = ({ modalState, setModalState }) => {
     const { register, handleSubmit: modalSubmit } = useForm()
     const onSubmit = (data) => {
         console.log(data)
-        const bookingsData = {...data, itemImage, itemName}
+        const bookingsData = { ...data, itemImage, itemName }
         console.log(bookingsData)
         fetch('http://localhost:5000/bookings', {
             method: 'POST',
@@ -24,6 +24,14 @@ const BookingModal = ({ modalState, setModalState }) => {
             .then(res => res.json())
             .then(data => {
                 if (data.acknowledged) {
+                    // fetch(`http://localhost:5000/newProducts/${modalState._id}`, {
+                    //     method: 'PUT'
+                    // })
+                    //     .then(res => res.json())
+                    //     .then(data => {
+                    //         console.log(data)
+
+                    //     })
                     toast.success('Booking Successful')
                 }
             })
