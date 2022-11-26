@@ -1,5 +1,4 @@
 import React from 'react';
-import Spinner from './Spinner';
 
 const BookingCard = ({ refetch, product }) => {
 

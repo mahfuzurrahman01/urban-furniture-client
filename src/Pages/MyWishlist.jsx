@@ -1,7 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import React, { useContext } from 'react';
 import { AuthContext } from '../AuthProvider/AuthProvider';
-import BookingCard from '../Shared/BookingCard';
 import Spinner from '../Shared/Spinner';
 import WishlistItemCard from '../Shared/WishlistItemCard';
 
