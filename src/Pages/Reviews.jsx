@@ -8,11 +8,11 @@ const Reviews = () => {
             backgroundSize: 'cover',
             backgroundRepeat: 'no-repeat'
         }}>
-            <section className="   text-gray-100">
+            <section className="   lg:text-gray-100 text-gray-400">
                 <div className="container px-6 py-12 mx-auto">
                     <div className="grid items-center gap-4 xl:grid-cols-5">
                         <div className="max-w-2xl mx-auto my-8 space-y-4 text-center xl:col-span-2 xl:text-left">
-                            <h2 className="text-5xl text-center font-bold">What our client says about us!</h2>
+                            <h2 className="lg:text-5xl text-4xl  text-center font-bold">What our client says about us!</h2>
                             <p className=" text-gray-100 ">Our clients praise us for our great results, personable service, expert knowledge and on-time delivery. Here are what just a few of them had to say:</p>
                         </div>
                         <div className="p-6 xl:col-span-3">

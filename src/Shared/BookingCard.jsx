@@ -8,8 +8,8 @@ const BookingCard = ({ refetch, product }) => {
     return (
         <div className="flex flex-col sm:flex-row sm:justify-between mt-5 text-gray-100 bg-zinc-500 bg-gradient-to-l from-gray-700 rounded-lg bg-opacity-70 p-5">
             <div className="flex w-full space-x-2 sm:space-x-4">
-                <img className="flex-shrink-0 object-cover w-20 h-20  border-transparent rounded outline-none sm:w-32 sm:h-32  bg-gray-500" src={itemImage} alt="Polaroid camera" />
-                <div className="flex flex-col justify-between w-full pb-4">
+                <img className="flex-shrink-0 object-cover lg:w-32 lg:h-32 md:w-52 h-32 w-32  border-transparent rounded outline-none sm:w-32 sm:h-32  bg-gray-500" src={itemImage} alt="Polaroid camera" />
+                <div className="flex flex-col justify-between w-full lg:pb-4">
                     <div className="flex justify-between w-full pb-2 space-x-2">
                         <div className="space-y-1">
                             <h3 className="text-xl leading-snug sm:pr-8">{itemName}</h3>
@@ -20,7 +20,7 @@ const BookingCard = ({ refetch, product }) => {
 
                         </div>
                     </div>
-                    <div className='flex justify-between items-center'>
+                    <div className='flex md:justify-between md:flex-row flex-col items-center'>
                         <div className="flex text-sm divide-x">
                             <button type="button" className="flex items-center px-2 py-1 pl-0 space-x-1">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" className="w-4 h-4 fill-current">
@@ -39,7 +39,7 @@ const BookingCard = ({ refetch, product }) => {
                                 <span>Favorites</span>
                             </button>
                         </div>
-                        <button className='bg-gradient-to-l bg-gray-300 from-zinc-500 hover:bg-secondary duration-500 hover:bg-gradient-to-l hover:from-primary py-1 px-9 rounded text-white'>Pay</button>
+                        <button className='bg-gradient-to-l bg-gray-300 from-zinc-500 hover:bg-secondary duration-500 hover:bg-gradient-to-l hover:from-primary py-1 px-9 rounded text-white w'>Pay</button>
                     </div>
                 </div>
             </div>

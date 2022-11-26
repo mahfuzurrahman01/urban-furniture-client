@@ -34,7 +34,7 @@ const BookingModal = ({ modalState, setModalState }) => {
             <input type="checkbox" id="my-modal-4" className="modal-toggle" />
             <div className="modal modal-bottom sm:modal-middle">
                 <div className="modal-box">
-                    <form onSubmit={modalSubmit(onSubmit)} noValidate="" action="" className="space-y-2 ng-untouched ng-pristine ng-valid p-5">
+                    <form onSubmit={modalSubmit(onSubmit)} noValidate="" action="" className="space-y-2 ng-untouched ng-pristine ng-valid lg:p-5">
                         <div className="space-y-1 text-sm">
                             <label htmlFor="name" className="block font-semibold  text-gray-600">Name</label>
                             <input {...register("name")} type="text" name="name" id="name" placeholder="Your Name" className="w-full px-4 py-3 rounded-md border-gray-400 bg-gray-200 text-gray-800 focus:border-violet-400" defaultValue={user?.displayName} readOnly />

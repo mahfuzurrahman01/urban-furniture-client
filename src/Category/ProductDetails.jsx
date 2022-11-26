@@ -36,12 +36,11 @@ const ProductDetails = () => {
 
     return (
         <div>
-            <div className='w-11/12 mx-auto relative'>
-                <img src={categoryImage} className='brightness-50 h-[700px] w-full' alt="" />
-                <div className='absolute top-1/3 right-[400px]'>
-
+            <div className='lg:w-11/12 w-full mx-auto relative'>
+                <img src={categoryImage} className='brightness-50 lg:h-[700px] md:h-[500px] lg:w-full' alt="" />
+                <div className='absolute md:top-1/3 top-1/4 lg:right-[430px] md:right-[150px] right-[60px]'>
                     <nav aria-label="breadcrumb" className="w-full p-4   bg-transparent  text-primary">
-                        <p className='text-center text-7xl bg-amber-100 bg-opacity-30 p-5 rounded-lg font-light text-white uppercase'>{categoryName}</p>
+                        <p className='text-center md:text-7xl text-3xl bg-amber-100 bg-opacity-30 p-5 rounded-lg font-light text-white uppercase'>{categoryName}</p>
                         <ol className="flex h-8 space-x-2 justify-center">
                             <li className="flex items-center">
                                 <Link to='/' rel="noopener noreferrer" title="Back to homepage" className="hover:underline">
@@ -67,7 +66,7 @@ const ProductDetails = () => {
                 </div>
             </div>
 
-            <div className='grid grid-cols-3 w-4/5 mx-auto my-10 space-x-5'>
+            <div className='grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 lg:w-4/5 w-11/12 mx-auto my-10 gap-5'>
                 {
                     data.map((product, i) => <div key={i}><div className="rounded-md shadow-md bg-secondary bg-opacity-90  bg-gradient-to-r from-primary text-gray-100" >
                         <div className="flex items-center justify-between p-3" data-aos="fade-up">

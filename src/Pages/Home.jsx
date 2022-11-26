@@ -53,18 +53,18 @@ const Home = () => {
                         </div>
                     </Slider>
                 </div>
-                <div className='absolute top-1/4 left-52 flex flex-col items-center justify-center space-y-2 bg-gray-300 bg-opacity-50 p-10 rounded-lg'>
-                    <h1 className='text-6xl font-semibold text-slate-100 text-center'>Decor the dreams with wood beauty</h1>
-                    <p className='text-3xl font-normal text-slate-600 text-center'>Don't go for new one, Just exchange your old one! <br /> One site where you can exchange,buy,resale</p>
+                <div className='md:absolute hidden lg:top-1/4 md:top-1/4 lg:left-52 md:left-24 md:flex flex-col items-center justify-center space-y-2 bg-gray-300 bg-opacity-50 p-10 rounded-lg'>
+                    <h1 className='lg:text-6xl md:text-3xl font-semibold text-slate-100 text-center'>Decor the dreams with wood beauty</h1>
+                    <p className='lg:text-3xl md:text-xl font-normal text-slate-600 text-center'>Don't go for new one, Just exchange your old one! <br /> One site where you can exchange,buy,resale</p>
                     <button className='bg-primary text-md bg-gradient-to-r from-secondary py-2 px-5 rounded text-white'>Get Started</button>
                 </div>
             </div>
             <div>
                 <AdvertiseItem></AdvertiseItem>
             </div>
-            <h1 className='text-center font-light text mb-10 border-gray-300 text-5xl'>Products Categories</h1>
-            <div className='grid grid-cols-3 w-11/12 mx-auto space-x-5 my-5'>
-                
+            <h1 className='text-center font-light text mb-10 border-gray-300 md:text-5xl text-3xl '>Products Categories</h1>
+            <div className='grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 w-11/12 mx-auto lg:gap-x-5 md:gap-x-3 gap-y-2 my-5'>
+
                 {
                     categories.map(category => <CategoryCard key={category.categoryId} category={category}></CategoryCard>)
                 }

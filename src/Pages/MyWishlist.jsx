@@ -21,7 +21,7 @@ const MyWishlist = () => {
     return (
         <div className='border-t-2 border-amber-100 p-5'>
             <h1 className=' text-lg'>You have {products.length} product on wishlist! <br /> Please pay before the products become sold.</h1>
-            <div className='grid lg:grid-cols-2 grid-cols-1 gap-x-5'>
+            <div className='grid md:grid-cols-2 grid-cols-1 gap-x-5'>
                 {
                     products.map(product => <WishlistItemCard key={product._id} product={product} refetch={refetch}></WishlistItemCard>)
                 }

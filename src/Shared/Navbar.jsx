@@ -23,7 +23,7 @@ const Navbar = () => {
             <li><Link to='/about'>About Us</Link></li>
         </>
     return (
-        <div className="navbar w-11/12 mx-auto py-5">
+        <div className="navbar md:w-11/12 w-full mx-auto md:py-5">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
