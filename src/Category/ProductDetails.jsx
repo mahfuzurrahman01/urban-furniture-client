@@ -2,22 +2,37 @@ import React, { useContext, useState } from 'react';
 import logo from '../assets/logo/V-Furniture.png'
 import { MdVerified } from 'react-icons/md'
 import { SlCalender } from 'react-icons/sl'
-import { AiFillStar } from 'react-icons/ai'
-import { useLoaderData } from 'react-router-dom';
-import ProductCard from './ProductCard';
-import { useForm } from 'react-hook-form';
+import { Link, useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../AuthProvider/AuthProvider';
 import BookingModal from '../Shared/BookingModal';
+import toast from 'react-hot-toast';
 
 const ProductDetails = () => {
     const { user } = useContext(AuthContext)
     const [modalState, setModalState] = useState(null)
 
     const data = useLoaderData()
-    const { categoryImage, categoryName, categoryId, products } = data[0]
+    console.log(data)
+    const { categoryImage, categoryName } = data[0]
 
-
-
+    const wishlistHandle = product => {
+        console.log(product)
+        const details = { ...product, buyersEmail: user?.email }
+        console.log(details)
+        fetch('http://localhost:5000/wishlist', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(details)
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.acknowledged) {
+                    toast.success('Product to wishlist')
+                }
+            })
+    }
 
     return (
         <div>
@@ -29,17 +44,17 @@ const ProductDetails = () => {
                         <p className='text-center text-7xl bg-amber-100 bg-opacity-30 p-5 rounded-lg font-light text-white uppercase'>{categoryName}</p>
                         <ol className="flex h-8 space-x-2 justify-center">
                             <li className="flex items-center">
-                                <a rel="noopener noreferrer" href=" " title="Back to homepage" className="hover:underline">
+                                <Link to='/' rel="noopener noreferrer" title="Back to homepage" className="hover:underline">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" className="w-7 h-7 pr-1   text-gray-400 fill-gray-400">
                                         <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"></path>
                                     </svg>
-                                </a>
+                                </Link>
                             </li>
                             <li className="flex items-center space-x-2">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" aria-hidden="true" fill="currentColor" className="w-2 h-2 mt-1 transform rotate-90 fill-gray-400   text-gray-600">
                                     <path d="M32 30.031h-32l16-28.061z"></path>
                                 </svg>
-                                <a rel="noopener noreferrer" href=" " className="flex items-center px-1 capitalize hover:underline text-white">Home</a>
+                                <Link to='/' rel="noopener noreferrer" href=" " className="flex items-center px-1 capitalize hover:underline text-white">Home</Link>
                             </li>
                             <li className="flex items-center space-x-2">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" aria-hidden="true" fill="currentColor" className="w-2 h-2 mt-1 transform rotate-90 fill-gray-400   text-gray-600">
@@ -54,7 +69,7 @@ const ProductDetails = () => {
 
             <div className='grid grid-cols-3 w-4/5 mx-auto my-10 space-x-5'>
                 {
-                    products.map((product, i) => <div key={i}><div className="rounded-md shadow-md bg-secondary bg-opacity-90  bg-gradient-to-r from-primary text-gray-100" >
+                    data.map((product, i) => <div key={i}><div className="rounded-md shadow-md bg-secondary bg-opacity-90  bg-gradient-to-r from-primary text-gray-100" >
                         <div className="flex items-center justify-between p-3" data-aos="fade-up">
                             <div className="flex items-center space-x-3">
                                 <img src={logo} alt="" className="object-cover object-center w-10 h-10 rounded-full shadow-sm   bg-gray-500   border-gray-700" />
@@ -75,7 +90,7 @@ const ProductDetails = () => {
 
                             <div className="flex items-center justify-between">
                                 <div className="flex flex-col gap-1">
-                                    <p className='text-xl font-semibold text-gray-100 flex items-baseline gap-1 '>{product.productName} <span className='text-xs'><AiFillStar className='text-amber-500 w-4 h-4'></AiFillStar></span></p>
+                                    <p className='text-xl font-semibold text-gray-100 flex flex-col items-baseline gap-1 '>{product.productName}</p>
 
                                 </div>
                                 <div title="Bookmark post" className="flex flex-col items-center justify-center">
@@ -88,6 +103,7 @@ const ProductDetails = () => {
                                     <p className='text-sm font-bold text-gray-300'>Location: <span className='font-normal'>{product.sellerLocation}</span></p>
                                     <p className='text-sm font-bold text-gray-300'>Used:<span className='font-normal'> {product.yearsOfUse}</span></p>
                                     <p className='text-sm font-bold text-gray-300'>Original Price: <span className='font-normal'>${product.originalPrice}</span></p>
+                                    <button onClick={() => wishlistHandle(product)} className='text-xs text-gray-800 hover:text-gray-100 font-semibold my-1 p-1 rounded-sm bg-slate-400 hover:bg-gray-500 hover:bg-gradient-to-l hover:from-zinc-600 duration-500'>Add to wishlist</button>
                                 </div>
                                 <div>
                                     <span className='text-xs font-semibold leading-none flex items-center gap-1 text-gray-300'><SlCalender className='w-4 h-4'></SlCalender> {product.postedTime}</span>

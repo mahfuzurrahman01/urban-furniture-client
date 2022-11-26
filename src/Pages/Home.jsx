@@ -62,7 +62,9 @@ const Home = () => {
             <div>
                 <AdvertiseItem></AdvertiseItem>
             </div>
+            <h1 className='text-center font-light text mb-10 border-gray-300 text-5xl'>Products Categories</h1>
             <div className='grid grid-cols-3 w-11/12 mx-auto space-x-5 my-5'>
+                
                 {
                     categories.map(category => <CategoryCard key={category.categoryId} category={category}></CategoryCard>)
                 }

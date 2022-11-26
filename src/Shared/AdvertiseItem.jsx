@@ -3,10 +3,10 @@ import React from 'react';
 const AdvertiseItem = () => {
     return (
         <div className='w-11/12 mx-auto'>
-            <section className="py-6 sm:py-12    bg-transparent  text-gray-100">
+            <section className="py-6 sm:py-12    bg-transparent ">
                 <div className="container p-6 mx-auto space-y-8">
                     <div className="space-y-2 text-center">
-                        <h2 className="text-3xl text-primary font-bold">Advertise Item</h2>
+                        <h2 className="text-5xl font-light">Advertise Item</h2>
                         <p className="font-serif text-sm    text-gray-400">Qualisque erroribus usu at, duo te agam soluta mucius.</p>
                     </div>
                     <div className="grid grid-cols-1 gap-x-4 gap-y-8 md:grid-cols-2 lg:grid-cols-4">
