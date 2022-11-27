@@ -9,7 +9,7 @@ const CheckOut = ({ data }) => {
     console.log(data)
     const [errorText, setErrorText] = useState('')
     const [success, setSuccess] = useState('')
-    const [processing, setProcessing] = useState(false)
+    // const [processing, setProcessing] = useState(false)
     const [transaction, setTransaction] = useState('')
     const [clientSecret, setClientSecret] = useState("");
 
@@ -33,11 +33,14 @@ const CheckOut = ({ data }) => {
     const handleSubmit = async (event) => {
 
         event.preventDefault();
+
         if (!stripe || !elements) {
+
             return;
         }
         const card = elements.getElement(CardElement);
         if (card == null) {
+
             return;
         }
         const { error, paymentMethod } = await stripe.createPaymentMethod({
@@ -45,15 +48,16 @@ const CheckOut = ({ data }) => {
             card,
         });
         if (error) {
-            setErrorText(error.message)
 
+            setErrorText(error.message)
+            toast.error(error.message)
         }
         else {
             setErrorText('')
         }
         setSuccess('')
         setTransaction('')
-        setProcessing(true)
+        // setProcessing(true)
         const { paymentIntent, error: confirmError } = await stripe.confirmCardPayment(
             clientSecret,
             {
@@ -68,7 +72,6 @@ const CheckOut = ({ data }) => {
         );
         if (confirmError) {
             setErrorText(confirmError.message)
-            setProcessing(false)
             return;
         }
         if (paymentIntent.status === "succeeded") {
@@ -90,19 +93,20 @@ const CheckOut = ({ data }) => {
                 .then(res => res.json())
                 .then(data => {
                     console.log(data)
-                    if (data.insertedId) {
+                    if (data.acknowledged) {
+                        // setProcessing(false)
                         setSuccess('Congrats! payment successfully done')
                         toast.success('Congrats! payment successfully done')
                         setTransaction(paymentIntent.id)
-                        setProcessing(false)
                     }
                 })
+            // setProcessing(false)
         }
 
     }
 
 
-    if (loader || processing) {
+    if (loader ) {
         return <Spinner></Spinner>
     }
     return (

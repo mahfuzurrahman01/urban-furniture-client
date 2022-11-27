@@ -1,15 +1,19 @@
 import logo from '../assets/logo/V-Furniture.png'
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../AuthProvider/AuthProvider';
 import toast from 'react-hot-toast';
 
 const Navbar = () => {
+    const navigate = useNavigate()
     const { user, logOut } = useContext(AuthContext)
     console.log(user)
     const logoutHandle = () => {
         logOut()
-            .then(() => toast.success('User logged out!'))
+            .then(() => {
+                toast.success('User logged out!')
+                navigate('/')
+            })
             .catch((err) => { console.log(err) })
     }
 
