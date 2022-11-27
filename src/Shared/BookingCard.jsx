@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const BookingCard = ({ refetch, product }) => {
     console.log(product)
-    const { itemName, itemImage, price, location,index } = product
+    const { itemName, itemImage, price, location, index } = product
 
     return (
         <div className="flex flex-col sm:flex-row sm:justify-between mt-5 text-gray-100 bg-zinc-500 bg-gradient-to-l from-gray-700 rounded-lg bg-opacity-70 p-5">
@@ -39,7 +39,9 @@ const BookingCard = ({ refetch, product }) => {
                                 <span>Favorites</span>
                             </button>
                         </div>
-                        <Link to={`/dashboard/payment/${index}`}><button className='bg-gradient-to-l bg-gray-300 from-zinc-500 hover:bg-secondary duration-500 hover:bg-gradient-to-l hover:from-primary py-1 px-9 rounded text-white w'>Pay</button></Link>
+                        {
+                            product.paid === true ? <button className=' bg-secondary duration-500 bg-gradient-to-l from-primary py-1 px-9 rounded text-white w' disabled>Paid</button> : <Link to={`/dashboard/payment/${index}`}><button className='bg-gradient-to-l bg-gray-300 from-zinc-500 hover:bg-secondary duration-500 hover:bg-gradient-to-l hover:from-primary py-1 px-9 rounded text-white w'>Pay</button></Link>
+                        }
                     </div>
                 </div>
             </div>

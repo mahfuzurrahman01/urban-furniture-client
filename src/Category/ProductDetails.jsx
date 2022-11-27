@@ -73,8 +73,8 @@ const ProductDetails = () => {
                             <div className="flex items-center space-x-3">
                                 <img src={logo} alt="" className="object-cover object-center w-10 h-10 rounded-full shadow-sm   bg-gray-500   border-gray-700" />
                                 <div className="">
-                                    <h2 className="text-md leading-none">{product.sellerName}</h2>
-                                    <span className="inline-block text-xs leading-none text-gray-400">{product?.position === 'verified' ? 'Verified seller' : 'Unverified Seller'}</span>
+                                    <h2 className="text-lg leading-none">{product.sellerName}</h2>
+                                    <span className='text-xs border font-semibold'>{product.status === 'sold' ? 'Sold out' : 'Available'}</span>
 
                                 </div>
                             </div>
@@ -109,7 +109,9 @@ const ProductDetails = () => {
                                 </div>
                             </div>
                             <div>
-                                <label onClick={() => setModalState(product)} htmlFor="my-modal-4" className="w-full block text-secondary text-center py-2 px-3 rounded mt-5 bg-gray-100 font-bold hover:bg-gray-300 duration-300">Book Now</label>
+                                {
+                                    product.status === 'sold' ? <button disabled onClick={() => setModalState(product)} htmlFor="my-modal-4" className="w-full block text-secondary text-center py-2 px-3 rounded mt-5 bg-gray-100 font-bold hover:bg-gray-300 duration-300">sold out</button>:<label onClick={() => setModalState(product)} htmlFor="my-modal-4" className="w-full block text-secondary text-center py-2 px-3 rounded mt-5 bg-gray-100 font-bold hover:bg-gray-300 duration-300">Book Now</label>
+                                }
                             </div>
                         </div>
                     </div>
