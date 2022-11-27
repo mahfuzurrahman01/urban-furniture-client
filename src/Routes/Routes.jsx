@@ -13,6 +13,7 @@ import MyProducts from "../Pages/MyProducts";
 import MyWishlist from "../Pages/MyWishlist";
 import Products from "../Pages/Products";
 import Register from "../Pages/Register";
+import Payment from "../Payment/Payment";
 import AdminPrivate from "../Private/AdminPrivate";
 import BuyerPrivate from "../Private/BuyerPrivate";
 import PrivateRoute from "../Private/PrivateRoute";
@@ -58,7 +59,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/category/:id',
-                loader:({ params }) => fetch(`http://localhost:5000/products/${params.id}`),
+                loader: ({ params }) => fetch(`http://localhost:5000/products/${params.id}`),
                 element: <PrivateRoute><ProductDetails></ProductDetails></PrivateRoute>
             }
 
@@ -91,6 +92,11 @@ export const router = createBrowserRouter([
             {
                 path: '/dashboard/myWishlist',
                 element: <BuyerPrivate><MyWishlist></MyWishlist></BuyerPrivate>
+            },
+            {
+                path: '/dashboard/payment/:id',
+                loader: ({ params }) => fetch(`http://localhost:5000/product/${params.id}`),
+                element: <Payment></Payment>
             }
         ]
     },

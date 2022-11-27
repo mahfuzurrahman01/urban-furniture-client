@@ -7,12 +7,13 @@ const BookingModal = ({ modalState, setModalState }) => {
     console.log(modalState)
     const itemImage = modalState.productImage;
     const itemName = modalState.productName;
+    const index = modalState._id;
     const { user } = useContext(AuthContext)
     //modal result 
     const { register, handleSubmit: modalSubmit } = useForm()
     const onSubmit = (data) => {
         console.log(data)
-        const bookingsData = { ...data, itemImage, itemName }
+        const bookingsData = { ...data, itemImage, itemName, index }
         console.log(bookingsData)
         fetch('http://localhost:5000/bookings', {
             method: 'POST',

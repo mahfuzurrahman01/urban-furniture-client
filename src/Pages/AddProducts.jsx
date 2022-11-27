@@ -16,7 +16,7 @@ const AddProducts = () => {
     const { register, handleSubmit } = useForm()
     const onSubmit = data => {
         setIsLoading(true)
-
+        const postedTime = new Date().toJSON().slice(1, 19)
         const formData = new FormData();
         const image = data.productImage[0]
         formData.append('image', image)
@@ -30,7 +30,7 @@ const AddProducts = () => {
                     const productImage = imgData.data.url;
                     data.productImage = productImage;
                     if (data.categoryName === "Living Room") {
-                        const newData = { ...data, categoryId: 1, categoryImage: "https://i.ibb.co/QPNJC23/livingroom.jpg" }
+                        const newData = { ...data, categoryId: 1, categoryImage: "https://i.ibb.co/QPNJC23/livingroom.jpg", postedTime }
                         fetch('http://localhost:5000/addProducts', {
                             method: 'POST',
                             headers: {
@@ -48,7 +48,7 @@ const AddProducts = () => {
                             })
                     }
                     else if (data.categoryName === "Dinning Room") {
-                        const newData = { ...data, categoryId: 2, categoryImage: "https://images.unsplash.com/photo-1615803796379-b4cda8e9c09c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" }
+                        const newData = { ...data, categoryId: 2, categoryImage: "https://images.unsplash.com/photo-1615803796379-b4cda8e9c09c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80", postedTime }
                         fetch('http://localhost:5000/addProducts', {
                             method: 'POST',
                             headers: {
@@ -67,7 +67,7 @@ const AddProducts = () => {
 
                     }
                     else if (data.categoryName === "kitchen Room") {
-                        const newData = { ...data, categoryId: 3, categoryImage: "https://images.pexels.com/photos/2635038/pexels-photo-2635038.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" }
+                        const newData = { ...data, categoryId: 3, categoryImage: "https://images.pexels.com/photos/2635038/pexels-photo-2635038.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", postedTime }
                         fetch('http://localhost:5000/addProducts', {
                             method: 'POST',
                             headers: {
