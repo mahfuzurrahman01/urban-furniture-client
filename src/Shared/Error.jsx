@@ -1,19 +1,16 @@
 import React from 'react';
-
+import { Link } from 'react-router-dom';
+import img from '../assets/error/404 Error-rafiki.png'
 const Error = () => {
     return (
-        <section className="flex items-center h-full p-16   bg-gray-900 text-gray-100 lg:w-11/12 md:w-11/12 w-full mx-auto">
-            <div className="container flex flex-col items-center justify-center px-5 mx-auto my-8">
-                <div className="max-w-md text-center">
-                    <h2 className="mb-8 font-extrabold text-9xl   text-gray-600">
-                        <span className="sr-only">Error</span>404
-                    </h2>
-                    <p className="text-2xl font-semibold md:text-3xl">Sorry, we couldn't find this page.</p>
-                    <p className="mt-4 mb-8   text-gray-400">But dont worry, you can find plenty of other things on our homepage.</p>
-                    <a rel="noopener noreferrer" href=" #  " className="px-8 py-3 font-semibold rounded   bg-violet-400   text-gray-900">Back to homepage</a>
-                </div>
+        <div className='w-11/12 mx-auto'>
+              <img src={img} alt="img" className='lg:w-1/4 md:1/2 w-11/12 mx-auto'/>
+            <div className="text-center">
+                <p className="text-2xl font-semibold md:text-3xl">Sorry, we couldn't find this page.</p>
+                <p className="mt-4 mb-8   text-gray-700">But dont worry, you can find plenty of other things on our homepage.</p>
+                <Link to='/' rel="noopener noreferrer" className="px-8 py-3 font-semibold rounded bg-primary text-white">Back to homepage</Link>
             </div>
-        </section>
+        </div>
     );
 };
 
