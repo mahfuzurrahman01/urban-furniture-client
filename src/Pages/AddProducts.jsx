@@ -94,7 +94,7 @@ const AddProducts = () => {
     }
     return (
         <div className='border-t-2 border-amber-100 p-5'>
-            <h1>This is add products section</h1>
+            <h1 className='md:text-xl text-md font-semibold text-center my-2 text-gray-600'>Please fill up this form with relevant product information!</h1>
             <div>
                 <form onSubmit={handleSubmit(onSubmit)} noValidate="" action="" className="space-y-2 ng-untouched ng-pristine ng-valid lg:p-5">
 

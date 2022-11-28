@@ -22,9 +22,9 @@ const Dashboard = () => {
                 <div className="drawer-content">
                     <div className='w-full flex justify-between items-center'>
                         <p className='border text-sm font-semibold p-1 ml-2 border-amber-200'>Hey {user?.displayName}, This is your dashboard</p>
-                        <button className='text-white lg:my-2 my-7 bg-primary bg-gradient-to-r from-secondary rounded py-1 px-3'>{role.role} dashboard</button>
+                        <button className='text-white lg:my-2 my-7 bg-primary bg-gradient-to-r from-secondary rounded py-1 px-3 uppercase'>{role.role} dashboard</button>
                     </div>
-                    <label htmlFor="my-drawer-2" className="btn btn-primary btn-xs w-[10%] absolute top-0 right-0 text-white drawer-button lg:hidden">Menu</label>
+                    <label htmlFor="my-drawer-2" className="btn btn-primary btn-xs w-[10%] absolute top-0 right-0 text-white drawer-button lg:hidden z-10">Menu</label>
                     <Outlet></Outlet>
                 </div>
                 <div className="drawer-side">

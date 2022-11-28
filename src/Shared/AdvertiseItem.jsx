@@ -18,7 +18,7 @@ const AdvertiseItem = () => {
     return (
         <div className='md:w-11/12 w-full mx-auto'>
             {
-                products.length >= 0 && <section className="py-6 sm:py-12    bg-transparent ">
+                products.length > 0 && <section className="py-6 sm:py-12    bg-transparent ">
                     <div className="container p-6 mx-auto space-y-8">
                         <div className="space-y-2 text-center">
                             <h2 className="text-5xl font-light">Hot Deals</h2>

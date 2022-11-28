@@ -73,7 +73,7 @@ const ProductDetails = () => {
                             <div className="flex items-center space-x-3">
                                 <img src={logo} alt="" className="object-cover object-center w-10 h-10 rounded-full shadow-sm   bg-gray-500   border-gray-700" />
                                 <div className="">
-                                    <h2 className="text-lg leading-none">{product.sellerName}</h2>
+                                <p className='text-xl font-semibold text-gray-100 flex flex-col items-baseline gap-1 '>{product.productName}</p>
                                     <span className='text-xs border font-semibold'>{product.status === 'sold' ? 'Sold out' : 'Available'}</span>
 
                                 </div>
@@ -89,8 +89,8 @@ const ProductDetails = () => {
 
                             <div className="flex items-center justify-between">
                                 <div className="flex flex-col gap-1">
-                                    <p className='text-xl font-semibold text-gray-100 flex flex-col items-baseline gap-1 '>{product.productName}</p>
-
+                                    
+                                    <h2 className="text-lg leading-none">Seller: {product.sellerName}</h2>
                                 </div>
                                 <div title="Bookmark post" className="flex flex-col items-center justify-center">
                                     <p className='text-2xl text-gray-200'>${product.resalePrice}</p>
@@ -102,6 +102,7 @@ const ProductDetails = () => {
                                     <p className='text-sm font-bold text-gray-300'>Location: <span className='font-normal'>{product.sellerLocation}</span></p>
                                     <p className='text-sm font-bold text-gray-300'>Used:<span className='font-normal'> {product.yearsOfUse}</span></p>
                                     <p className='text-sm font-bold text-gray-300'>Original Price: <span className='font-normal'>${product.originalPrice}</span></p>
+                                    <p className='text-sm font-bold text-gray-300'>Resale Price: <span className='font-normal'>${product.resalePrice}</span></p>
                                     <button onClick={() => wishlistHandle(product)} className='text-xs text-gray-800 hover:text-gray-100 font-semibold my-1 p-1 rounded-sm bg-slate-400 hover:bg-gray-500 hover:bg-gradient-to-l hover:from-zinc-600 duration-500'>Add to wishlist</button>
                                 </div>
                                 <div>
