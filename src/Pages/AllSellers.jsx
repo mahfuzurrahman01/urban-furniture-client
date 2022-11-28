@@ -7,13 +7,18 @@ import Spinner from '../Shared/Spinner';
 const AllSellers = () => {
     const { data: sellers = [], isLoading, refetch } = useQuery({
         queryKey: ['sellers'], queryFn: async () => {
-            const res = await fetch('http://localhost:5000/allsellers')
+            const res = await fetch('https://urban-eta.vercel.app/allsellers', {
+                headers: {
+                    authorization: `Bearer ${localStorage.getItem('token')}`
+                }
+            })
             const data = await res.json()
             return data;
         }
     })
+    console.log(sellers)
     const deleteHandle = (email, name) => {
-        fetch(`http://localhost:5000/seller?email=${email}`, {
+        fetch(`https://urban-eta.vercel.app/seller?email=${email}`, {
             method: 'DELETE',
         })
             .then(res => res.json())
@@ -26,7 +31,18 @@ const AllSellers = () => {
             })
     }
 
-
+    const verifyHandle = (email, name) => {
+        fetch(`https://urban-eta.vercel.app/updateSeller?email=${email}`, {
+            method: 'PUT',
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.acknowledged) {
+                    toast.success(`${name} is now a verified seller`)
+                    refetch()
+                }
+            })
+    }
     if (isLoading) {
         return <Spinner></Spinner>
     }
@@ -56,7 +72,11 @@ const AllSellers = () => {
                                 <td>
                                     <span className="badge badge-ghost badge-sm">{seller.email}</span>
                                 </td>
-                                <td><button className='bg-gray-500 rounded p-1 text-white text-xs'>Verify seller</button></td>
+                                <td>
+                                    {
+                                        seller?.position === 'verified' ? <button disabled className='bg-primary rounded p-1 text-white text-xs'>Verified</button> : <button onClick={() => verifyHandle(seller.email, seller.name)} className='bg-gray-500 rounded p-1 text-white text-xs'>Verify</button>
+                                    }
+                                </td>
                                 <td>
                                     <button onClick={() => deleteHandle(seller.email, seller.name)} className="bg-gray-600 text-md rounded p-1 text-white"><RiDeleteBin6Line></RiDeleteBin6Line></button>
                                 </td>

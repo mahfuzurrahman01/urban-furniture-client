@@ -1,10 +1,10 @@
-# [Urban](***)
+# [Urban](https://v-furniture-ef0e9.web.app/)
 Urban is a 2nd hand furniture selling website.Where people can post there old product by creating a seller account and also user can create a buyer account and make purchase any product.With an online card payment.<br/>
 Admin: 
 Email: mafuzur@gmail.com
 password: 12345678
 
-live link: https://d-vacuum-a11.web.app/
+live link: https://v-furniture-ef0e9.web.app/
 
 ## Feature
 There are 3 different type of user both have a different dashboard system
@@ -37,4 +37,5 @@ And as library I use MAMBA UI component library of tailwind.Also some cases like
 daisy UI.
 I also use toast which are from SIETALERT2 and icons from REACT-ICONS.
 
-## site live link
+## site live link 
+https://v-furniture-ef0e9.web.app/

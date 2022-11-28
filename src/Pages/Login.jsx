@@ -22,6 +22,15 @@ const Login = () => {
                 const user = result.user;
                 console.log(user)
                 form.reset()
+                //jwt token apply
+                fetch(`https://urban-eta.vercel.app/jwt?email=${user?.email}`)
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data)
+                        if (data.token) {
+                            localStorage.setItem('token', data.token)
+                        }
+                    })
                 navigate(from, { replace: true });
                 toast.success('Successfully Logged In')
             })
@@ -37,13 +46,14 @@ const Login = () => {
         googleLogin()
             .then(result => {
                 const user = result.user;
+                console.log(user)
                 const userData = {
                     name: user.displayName,
                     email: user.email,
                     role: 'buyer'
                 }
 
-                fetch('http://localhost:5000/adduser', {
+                fetch('https://urban-eta.vercel.app/adduser', {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'
@@ -53,6 +63,15 @@ const Login = () => {
                     .then(res => res.json())
                     .then(data => {
                         if (data.acknowledged) {
+                            //jwt token apply
+                            fetch(`https://urban-eta.vercel.app/jwt?email=${user?.email}`)
+                                .then(res => res.json())
+                                .then(data => {
+                                    console.log(data)
+                                    if (data.token) {
+                                        localStorage.setItem('token', data.token)
+                                    }
+                                })
                             toast.success('Successfully Logged In')
                             navigate('/')
                         }

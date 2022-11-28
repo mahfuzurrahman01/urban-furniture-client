@@ -6,7 +6,7 @@ import Spinner from './Spinner';
 const AdvertiseItem = () => {
     const { data: products = [], isLoading } = useQuery({
         queryKey: ['products'], queryFn: async () => {
-            const res = await fetch('http://localhost:5000/advertise')
+            const res = await fetch('https://urban-eta.vercel.app/advertise')
             const data = await res.json()
             return data;
         }
@@ -27,7 +27,7 @@ const AdvertiseItem = () => {
                                     <div className="container mx-auto">
                                         <div className="flex flex-col lg:flex-row items-center justify-between">
                                             <h2 className="text-center md:text-6xl text-4xl tracking-tighter font-bold">Up to
-                                                <br className="sm:hidden"/>50% Off
+                                                <br className="sm:hidden" />50% Off
                                             </h2>
                                             <div className="space-x-2 text-center py-2 lg:py-0">
                                                 <span>Plus free shipping! Use code:</span>
@@ -38,7 +38,7 @@ const AdvertiseItem = () => {
                                     </div>
                                 </div>
                             </div>
-                           
+
                         </div>
                         <div className="lg:flex gap-4 justify-center items-center flex-wrap grid md:grid-cols-2 grid-cols-1">
                             {

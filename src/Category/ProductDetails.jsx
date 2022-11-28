@@ -19,10 +19,11 @@ const ProductDetails = () => {
         console.log(product)
         const details = { ...product, buyersEmail: user?.email }
         console.log(details)
-        fetch('http://localhost:5000/wishlist', {
+        fetch('https://urban-eta.vercel.app/wishlist', {
             method: 'POST',
             headers: {
-                'content-type': 'application/json'
+                'content-type': 'application/json',
+                authorization: `Bearer ${localStorage.getItem('token')}`
             },
             body: JSON.stringify(details)
         })
@@ -73,7 +74,7 @@ const ProductDetails = () => {
                             <div className="flex items-center space-x-3">
                                 <img src={logo} alt="" className="object-cover object-center w-10 h-10 rounded-full shadow-sm   bg-gray-500   border-gray-700" />
                                 <div className="">
-                                <p className='text-xl font-semibold text-gray-100 flex flex-col items-baseline gap-1 '>{product.productName}</p>
+                                    <p className='text-xl font-semibold text-gray-100 flex flex-col items-baseline gap-1 '>{product.productName}</p>
                                     <span className='text-xs border font-semibold'>{product.status === 'sold' ? 'Sold out' : 'Available'}</span>
 
                                 </div>
@@ -89,7 +90,7 @@ const ProductDetails = () => {
 
                             <div className="flex items-center justify-between">
                                 <div className="flex flex-col gap-1">
-                                    
+
                                     <h2 className="text-lg leading-none">Seller: {product.sellerName}</h2>
                                 </div>
                                 <div title="Bookmark post" className="flex flex-col items-center justify-center">
@@ -111,7 +112,7 @@ const ProductDetails = () => {
                             </div>
                             <div>
                                 {
-                                    product.status === 'sold' ? <button disabled onClick={() => setModalState(product)} htmlFor="my-modal-4" className="w-full block text-secondary text-center py-2 px-3 rounded mt-5 bg-gray-100 font-bold hover:bg-gray-300 duration-300">sold out</button>:<label onClick={() => setModalState(product)} htmlFor="my-modal-4" className="w-full block text-secondary text-center py-2 px-3 rounded mt-5 bg-gray-100 font-bold hover:bg-gray-300 duration-300">Book Now</label>
+                                    product.status === 'sold' ? <button disabled onClick={() => setModalState(product)} htmlFor="my-modal-4" className="w-full block text-secondary text-center py-2 px-3 rounded mt-5 bg-gray-100 font-bold hover:bg-gray-300 duration-300">sold out</button> : <label onClick={() => setModalState(product)} htmlFor="my-modal-4" className="w-full block text-secondary text-center py-2 px-3 rounded mt-5 bg-gray-100 font-bold hover:bg-gray-300 duration-300">Book Now</label>
                                 }
                             </div>
                         </div>

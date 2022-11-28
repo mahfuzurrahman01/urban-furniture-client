@@ -1,20 +1,35 @@
 import logo from '../assets/logo/V-Furniture.png'
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../AuthProvider/AuthProvider';
 import toast from 'react-hot-toast';
 import useRole from '../Hooks/useRole';
 
+
 const Navbar = () => {
     const navigate = useNavigate()
+    const [navState, setNavState] = useState('')
     const { user, logOut } = useContext(AuthContext)
-    const [role, setRole] = useRole(user?.email)
+
+    if (user?.email) {
+        fetch(`https://urban-eta.vercel.app/user/${user?.email}`)
+            .then(res => res.json())
+            .then(data => {
+
+                setNavState(data)
+                return;
+            })
+    }
+    // const [role, setRole] = useRole(user?.email)
     const logoutHandle = () => {
+
+        // setRole('')
         logOut()
             .then(() => {
                 toast.success('User logged out!')
-                setRole('')
+                setNavState('')
                 navigate('/')
+                window.location.reload()
             })
             .catch((err) => { console.log(err) })
     }
@@ -23,12 +38,12 @@ const Navbar = () => {
         <>
             <li><Link to='/'>Home</Link></li>
             {
-                user?.email && !role?.message && <li><Link to='/dashboard'>Dashboard</Link></li>
+                user?.email && !navState.message && <li><Link to='/dashboard'>Dashboard</Link></li>
             }
             <li><Link to='/blogs'>Blogs</Link></li>
             <li><Link to='/about'>About Us</Link></li>
         </>
-   
+
     return (
         <div className="navbar md:w-11/12 w-full mx-auto md:py-5">
             <div className="navbar-start">
@@ -52,7 +67,7 @@ const Navbar = () => {
             </div>
             <div className="navbar-end flex md:flex-row gap-1 flex-col">
                 {
-                    role?.message && <button className='py-1 px-4 bg-red-500 rounded text-white'>Restricted</button>
+                    navState?.message === 'User Not found' && <button className='py-1 px-4 bg-red-500 rounded text-white'>Restricted</button>
                 }
                 {
                     user?.email ? <button onClick={logoutHandle} className='py-1 px-4 bg-primary bg-gradient-to-r from-secondary rounded text-white'>Logout</button> : <Link to='/login'><button className='py-1 px-4 bg-primary bg-gradient-to-r from-secondary rounded text-white'>SignIn</button></Link>

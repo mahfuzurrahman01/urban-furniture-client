@@ -14,8 +14,11 @@ const MyProductsCard = ({ product, refetch }) => {
         resalePrice,
     }
     const removeHandle = id => {
-        fetch(`http://localhost:5000/myProducts/${id}`, {
+        fetch(`https://urban-eta.vercel.app/myProducts/${id}`, {
             method: 'DELETE',
+            headers: {
+                authorization: `Bearer ${localStorage.getItem('token')}`
+            }
         })
             .then(res => res.json())
             .then(data => {
@@ -27,10 +30,11 @@ const MyProductsCard = ({ product, refetch }) => {
             })
     }
     const advertiseHandle = () => {
-        fetch('http://localhost:5000/advertise', {
+        fetch('https://urban-eta.vercel.app/advertise', {
             method: 'POST',
             headers: {
-                'content-type': 'application/json'
+                'content-type': 'application/json',
+                authorization: `Bearer ${localStorage.getItem('token')}`
             },
             body: JSON.stringify(advertiseProduct)
         })

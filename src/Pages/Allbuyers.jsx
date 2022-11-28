@@ -7,13 +7,13 @@ const Allbuyers = () => {
     document.title = "Buyers";
     const { data: buyers = [], isLoading, refetch } = useQuery({
         queryKey: ['sellers'], queryFn: async () => {
-            const res = await fetch('http://localhost:5000/allbuyers')
+            const res = await fetch('https://urban-eta.vercel.app/allbuyers')
             const data = await res.json()
             return data;
         }
     })
     const deleteHandle = (email, name) => {
-        fetch(`http://localhost:5000/buyer?email=${email}`, {
+        fetch(`https://urban-eta.vercel.app/buyer?email=${email}`, {
             method: 'DELETE',
         })
             .then(res => res.json())

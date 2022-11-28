@@ -9,7 +9,11 @@ const MyOrders = () => {
     const { user } = useContext(AuthContext)
     const { data: products = [], refetch, isLoading } = useQuery({
         queryKey: ['bookings'], queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/bookings/?email=${user?.email}`)
+            const res = await fetch(`https://urban-eta.vercel.app/bookings/?email=${user?.email}`, {
+                headers: {
+                    authorization: `Bearer ${localStorage.getItem('token')}`
+                }
+            })
             const data = await res.json()
             return data
         }

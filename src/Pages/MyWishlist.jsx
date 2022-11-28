@@ -9,7 +9,11 @@ const MyWishlist = () => {
     const { user } = useContext(AuthContext)
     const { data: products = [], refetch, isLoading } = useQuery({
         queryKey: ['products'], queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/wishlist/?email=${user?.email}`)
+            const res = await fetch(`https://urban-eta.vercel.app/wishlist/?email=${user?.email}`, {
+                headers: {
+                    authorization: `Bearer ${localStorage.getItem('token')}`
+                }
+            })
             const data = await res.json()
             return data
         }

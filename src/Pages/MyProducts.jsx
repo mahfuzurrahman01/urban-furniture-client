@@ -7,12 +7,15 @@ import MyProductsCard from './MyProductsCard';
 const MyProducts = () => {
     document.title = "My Products";
     const { user } = useContext(AuthContext)
-    const { data: products = [], isLoading,refetch } = useQuery({
+    const { data: products = [], isLoading, refetch } = useQuery({
         queryKey: ['products'], queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/myProducts/?email=${user?.email}`)
+            const res = await fetch(`https://urban-eta.vercel.app/myProducts/?email=${user?.email}`, {
+                headers: {
+                    authorization: `Bearer ${localStorage.getItem('token')}`
+                }
+            })
             const data = await res.json()
             return data;
-
         }
     })
     if (isLoading) {

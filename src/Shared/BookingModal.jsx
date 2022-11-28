@@ -15,17 +15,18 @@ const BookingModal = ({ modalState, setModalState }) => {
         console.log(data)
         const bookingsData = { ...data, itemImage, itemName, index }
         console.log(bookingsData)
-        fetch('http://localhost:5000/bookings', {
+        fetch('https://urban-eta.vercel.app/bookings', {
             method: 'POST',
             headers: {
-                'content-type': 'application/json'
+                'content-type': 'application/json',
+                authorization: `Bearer ${localStorage.getItem('token')}`
             },
             body: JSON.stringify(bookingsData)
         })
             .then(res => res.json())
             .then(data => {
                 if (data.acknowledged) {
-                    // fetch(`http://localhost:5000/newProducts/${modalState._id}`, {
+                    // fetch(`https://urban-eta.vercel.app/newProducts/${modalState._id}`, {
                     //     method: 'PUT'
                     // })
                     //     .then(res => res.json())

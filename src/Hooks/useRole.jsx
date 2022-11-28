@@ -4,12 +4,8 @@ const useRole = (email) => {
     const [userLoading, setUserLoading] = useState(true)
     const [role, setRole] = useState('')
 
-
     useEffect(() => {
-        if (email === undefined) {
-            return
-        }
-        fetch(`http://localhost:5000/user/${email}`)
+        fetch(`https://urban-eta.vercel.app/user/${email}`)
             .then(res => res.json())
             .then(data => {
                 console.log(data)

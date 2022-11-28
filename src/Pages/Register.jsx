@@ -34,7 +34,7 @@ const Register = () => {
                     .then(() => { })
                     .catch((err) => console.log(err))
                 form.reset()
-                fetch('http://localhost:5000/adduser', {
+                fetch('https://urban-eta.vercel.app/adduser', {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'
@@ -44,8 +44,19 @@ const Register = () => {
                     .then(res => res.json())
                     .then(data => {
                         if (data.acknowledged) {
+                            //jwt token apply
+                            fetch(`https://urban-eta.vercel.app/jwt?email=${user?.email}`)
+                                .then(res => res.json())
+                                .then(data => {
+                                    console.log(data)
+                                    if (data.token) {
+                                        localStorage.setItem('token', data.token)
+                                    }
+                                })
                             toast.success('User Created Successfully!')
+                            window.reload()
                             navigate('/')
+
                         }
                     })
 
@@ -64,7 +75,7 @@ const Register = () => {
                     role: 'buyer'
                 }
 
-                fetch('http://localhost:5000/adduser', {
+                fetch('https://urban-eta.vercel.app/adduser', {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'
@@ -74,6 +85,15 @@ const Register = () => {
                     .then(res => res.json())
                     .then(data => {
                         if (data.acknowledged) {
+                            //jwt token apply
+                            fetch(`https://urban-eta.vercel.app/jwt?email=${user?.email}`)
+                                .then(res => res.json())
+                                .then(data => {
+                                    console.log(data)
+                                    if (data.token) {
+                                        localStorage.setItem('token', data.token)
+                                    }
+                                })
                             toast.success('Successfully Logged In')
                             navigate('/')
                         }

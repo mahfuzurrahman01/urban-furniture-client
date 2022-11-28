@@ -1,4 +1,5 @@
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
+import { reload } from 'firebase/auth';
 import React, { useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
 import Spinner from './Spinner';
@@ -18,7 +19,7 @@ const CheckOut = ({ data }) => {
     const elements = useElements();
     useEffect(() => {
         // Create PaymentIntent as soon as the page loads
-        fetch("http://localhost:5000/create-payment-intent", {
+        fetch("https://urban-eta.vercel.app/create-payment-intent", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ price }),
@@ -83,7 +84,7 @@ const CheckOut = ({ data }) => {
                 bookingId: index
             }
 
-            fetch('http://localhost:5000/payments', {
+            fetch('https://urban-eta.vercel.app/payments', {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json',
@@ -95,8 +96,10 @@ const CheckOut = ({ data }) => {
                     console.log(data)
                     if (data.acknowledged) {
                         // setProcessing(false)
+
                         setSuccess('Congrats! payment successfully done')
                         toast.success('Congrats! payment successfully done')
+
                         setTransaction(paymentIntent.id)
                     }
                 })
@@ -106,7 +109,7 @@ const CheckOut = ({ data }) => {
     }
 
 
-    if (loader ) {
+    if (loader) {
         return <Spinner></Spinner>
     }
     return (

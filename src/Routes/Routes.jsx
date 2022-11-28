@@ -59,7 +59,11 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/category/:id',
-                loader: ({ params }) => fetch(`http://localhost:5000/products/${params.id}`),
+                loader: ({ params }) => fetch(`https://urban-eta.vercel.app/products/${params.id}`, {
+                    headers: {
+                        authorization: `Bearer ${localStorage.getItem('token')}`
+                    },
+                }),
                 element: <PrivateRoute><ProductDetails></ProductDetails></PrivateRoute>
             }
 
@@ -95,7 +99,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/dashboard/payment/:id',
-                loader: ({ params }) => fetch(`http://localhost:5000/product/${params.id}`),
+                loader: ({ params }) => fetch(`https://urban-eta.vercel.app/product/${params.id}`),
                 element: <Payment></Payment>
             }
         ]

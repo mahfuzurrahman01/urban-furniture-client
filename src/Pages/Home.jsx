@@ -25,7 +25,11 @@ const Home = () => {
     };
     const { data: categories = [], isLoading } = useQuery({
         queryKey: ['categories'], queryFn: async () => {
-            const res = await fetch('http://localhost:5000/products')
+            const res = await fetch('https://urban-eta.vercel.app/products', {
+                headers: {
+                    authorization: `Bearer ${localStorage.getItem('token')}`
+                }
+            })
             const data = await res.json()
             return data;
         }
