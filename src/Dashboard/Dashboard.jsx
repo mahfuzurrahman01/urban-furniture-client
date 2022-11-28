@@ -1,5 +1,4 @@
 import React, { useContext } from 'react';
-import toast from 'react-hot-toast';
 import { Link, Outlet } from 'react-router-dom';
 import { AuthContext } from '../AuthProvider/AuthProvider';
 import useRole from '../Hooks/useRole';

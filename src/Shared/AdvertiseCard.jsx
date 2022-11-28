@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const AdvertiseCard = ({ product }) => {
-    console.log(product)
     const { productImage, productName, sellerName, resalePrice, categoryId } = product;
     return (
         <article className="flex flex-col  bg-gray-200 " data-aos='fade-up'>

@@ -4,15 +4,11 @@ import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../AuthProvider/AuthProvider';
 import toast from 'react-hot-toast';
 import useRole from '../Hooks/useRole';
-import Spinner from './Spinner';
 
 const Navbar = () => {
     const navigate = useNavigate()
     const { user, logOut } = useContext(AuthContext)
-    console.log(user)
-    const [role, userLoading, setRole] = useRole(user?.email)
-    console.log(role)
-    console.log(user)
+    const [role, setRole] = useRole(user?.email)
     const logoutHandle = () => {
         logOut()
             .then(() => {
@@ -32,9 +28,7 @@ const Navbar = () => {
             <li><Link to='/blogs'>Blogs</Link></li>
             <li><Link to='/about'>About Us</Link></li>
         </>
-    if (userLoading) {
-        return <Spinner></Spinner>
-    }
+   
     return (
         <div className="navbar md:w-11/12 w-full mx-auto md:py-5">
             <div className="navbar-start">
