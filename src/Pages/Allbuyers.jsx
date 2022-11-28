@@ -2,15 +2,30 @@ import { useQuery } from '@tanstack/react-query';
 import React from 'react';
 import Spinner from '../Shared/Spinner';
 import { RiDeleteBin6Line } from 'react-icons/ri'
+import toast from 'react-hot-toast';
 const Allbuyers = () => {
     document.title = "Buyers";
-    const { data: buyers = [], isLoading } = useQuery({
+    const { data: buyers = [], isLoading, refetch } = useQuery({
         queryKey: ['sellers'], queryFn: async () => {
             const res = await fetch('http://localhost:5000/allbuyers')
             const data = await res.json()
             return data;
         }
     })
+    const deleteHandle = (email, name) => {
+        fetch(`http://localhost:5000/buyer?email=${email}`, {
+            method: 'DELETE',
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.acknowledged) {
+                    refetch()
+                    toast.success(`Deleted ${name}'s all data from Urban`)
+
+                }
+            })
+    }
+
     if (isLoading) {
         return <Spinner></Spinner>
     }
@@ -43,7 +58,7 @@ const Allbuyers = () => {
                                 </td>
                                 <td>{buyer.role}</td>
                                 <td>
-                                    <button className="bg-gray-600 text-md rounded p-1 text-white"><RiDeleteBin6Line></RiDeleteBin6Line></button>
+                                    <button onClick={() => deleteHandle(buyer.email, buyer.name)} className="bg-gray-600 text-md rounded p-1 text-white"><RiDeleteBin6Line></RiDeleteBin6Line></button>
                                 </td>
                             </tr>)
                         }

@@ -3,15 +3,21 @@ import React, { useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../AuthProvider/AuthProvider';
 import toast from 'react-hot-toast';
+import useRole from '../Hooks/useRole';
+import Spinner from './Spinner';
 
 const Navbar = () => {
     const navigate = useNavigate()
     const { user, logOut } = useContext(AuthContext)
     console.log(user)
+    const [role, userLoading, setRole] = useRole(user?.email)
+    console.log(role)
+    console.log(user)
     const logoutHandle = () => {
         logOut()
             .then(() => {
                 toast.success('User logged out!')
+                setRole('')
                 navigate('/')
             })
             .catch((err) => { console.log(err) })
@@ -21,11 +27,14 @@ const Navbar = () => {
         <>
             <li><Link to='/'>Home</Link></li>
             {
-                user?.email && <li><Link to='/dashboard'>Dashboard</Link></li>
+                user?.email && !role?.message && <li><Link to='/dashboard'>Dashboard</Link></li>
             }
             <li><Link to='/blogs'>Blogs</Link></li>
             <li><Link to='/about'>About Us</Link></li>
         </>
+    if (userLoading) {
+        return <Spinner></Spinner>
+    }
     return (
         <div className="navbar md:w-11/12 w-full mx-auto md:py-5">
             <div className="navbar-start">
@@ -47,7 +56,10 @@ const Navbar = () => {
                     {navbar}
                 </ul>
             </div>
-            <div className="navbar-end">
+            <div className="navbar-end flex md:flex-row gap-1 flex-col">
+                {
+                    role?.message && <button className='py-1 px-4 bg-red-500 rounded text-white'>Restricted</button>
+                }
                 {
                     user?.email ? <button onClick={logoutHandle} className='py-1 px-4 bg-primary bg-gradient-to-r from-secondary rounded text-white'>Logout</button> : <Link to='/login'><button className='py-1 px-4 bg-primary bg-gradient-to-r from-secondary rounded text-white'>SignIn</button></Link>
                 }
