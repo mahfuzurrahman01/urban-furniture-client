@@ -1,8 +1,8 @@
 # [Urban](https://v-furniture-ef0e9.web.app/)
 Urban is a 2nd hand furniture selling website.Where people can post there old product by creating a seller account and also user can create a buyer account and make purchase any product.With an online card payment.<br/>
-Admin: 
-Email: mafuzur@gmail.com
-password: 12345678
+
+adminEmail: mafuzur@gmail.com
+adminPassword: 12345678
 
 live link: https://v-furniture-ef0e9.web.app/
 
