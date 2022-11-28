@@ -1,70 +1,40 @@
-# Getting Started with Create React App
+# [Urban](***)
+Urban is a 2nd hand furniture selling website.Where people can post there old product by creating a seller account and also user can create a buyer account and make purchase any product.With an online card payment.<br/>
+Admin: 
+Email: mafuzur@gmail.com
+password: 12345678
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+live link: https://d-vacuum-a11.web.app/
 
-## Available Scripts
+## Feature
+There are 3 different type of user both have a different dashboard system
+##### Admin: 
+Admin can see All buyers and sellers in dashboard.And also can delete any of them.And an admin can verify any user.
+If the admin remove delete any seller or buyer the account will see a restriction button in his account and this user not able to do any dashboard action.and dashboard button will not visible to restricted user.
+##### Buyer:
+Buyer Dashboard have 2 option my orders where buyers will see his booked order if user paid for any of them there will be a disabled button with paid text if not paid it will show Pay button. By clicking Pay it will redirect him to payment page where user can use card system for making payment after make payment the product will show paid button in my orders route. There is another button in dashboard name 'my wishlist ' user can choose his wishlist item by clicking wishlist button in products page.Added wishlist item will be visible here.
 
-In the project directory, you can run:
+##### Seller:
+Seller Dashboard have 2 option my products, where user will find the products which he/she posted before.Seller can remove any of his product by clicking remove button.
+There are another button in dashboard menu which is add products from where user can add his product with giving information in form.
+If seller remove any of them it will be deleted from advertise items too.(if item advertised before)
 
-### `npm start`
+### `log in and registration`
+User can log in with email and password. also can log in with google .
+In registration section form will have extra field where user have to choose any of the field buyer or seller. By choosing buyer the account will make as buyer and by choosing seller the account will create as seller account.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### `Navbar`
+In navbar have public route home,about,blogs but when user log in there will a dashboard option too..
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
+### `Blogs`
+In this section I shown some question and ansIr which are also added in task for us
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+### `Component I use:`
+I use Tailwind css framework in this project.
+And as library I use MAMBA UI component library of tailwind.Also some cases like navbar and modal component i use
+daisy UI.
+I also use toast which are from SIETALERT2 and icons from REACT-ICONS.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## site live link
